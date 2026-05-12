@@ -1,0 +1,7 @@
+export const AUTOS_INIT = [
+  { id: 1, marca: "Toyota", modelo: "Corolla", año: 2022, km: 28000, precio: 22500, tipo: "Sedán", combustible: "Nafta", color: "Blanco Perla", transmision: "Automático", fotos: ["🚗", "🪟", "🛞"], destacado: true, desc: "Impecable estado, service al día, único dueño." },
+  { id: 2, marca: "Volkswagen", modelo: "Golf GTI", año: 2021, km: 41000, precio: 31000, tipo: "Hatchback", combustible: "Nafta", color: "Rojo Tornado", transmision: "Manual", fotos: ["🏎️", "💺", "🎛️"], destacado: true, desc: "Versión deportiva, levanta vidrios eléctricos, Bluetooth." },
+  { id: 3, marca: "Ford", modelo: "Ranger XLT", año: 2023, km: 15000, precio: 44000, tipo: "Pick-up", combustible: "Diesel", color: "Gris Oxford", transmision: "Automático", fotos: ["🛻", "🔧", "🪣"], destacado: false, desc: "4x4, caja larga, cámara de reversa, casi 0km." },
+  { id: 4, marca: "Chevrolet", modelo: "Tracker Premier", año: 2022, km: 33000, precio: 27800, tipo: "SUV", combustible: "Nafta", color: "Azul Stellar", transmision: "Automático", fotos: ["🚙", "🌅", "📱"], destacado: true, desc: "Full equipo, techo panorámico, Apple CarPlay." },
+  { id: 5, marca: "Honda", modelo: "Civic EX", año: 2020, km: 58000, precio: 19500, tipo: "Sedán", combustible: "Nafta", color: "Negro Cristal", transmision: "CVT", fotos: ["🚗", "🖥️"], destacado: false, desc: "Motor 1.5 turbo, pantalla táctil 8', sensor de estacionamiento." },
+];
