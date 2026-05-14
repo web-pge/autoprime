@@ -29,6 +29,6 @@ export const EMPTY_AUTO = {
   transmision: "Manual",
   color:       "",
   desc:        "",
-  fotos:       ["🚗"],
+  fotos:       [],
   destacado:   false,
 };

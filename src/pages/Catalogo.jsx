@@ -7,7 +7,8 @@ import FadeIn       from "../components/ui/FadeIn";
 import C            from "../constants/theme";
 import { useVehiculos } from "../hooks/useVehiculos";
 
-const FILTERS_INIT = { tipo: "Todos", marca: "Todas", precioMax: 50000 };
+const PRECIO_MAX_SLIDER = 50000;
+const FILTERS_INIT = { tipo: "Todos", marca: "Todas", precioMax: PRECIO_MAX_SLIDER };
 
 // Skeleton de una card mientras carga
 const CardSkeleton = () => (
@@ -31,7 +32,7 @@ export default function Catalogo() {
   const filtrados = useMemo(() => autos.filter(a =>
     (filters.tipo  === "Todos"  || a.tipo  === filters.tipo) &&
     (filters.marca === "Todas"  || a.marca === filters.marca) &&
-    a.precio <= filters.precioMax
+    (filters.precioMax >= PRECIO_MAX_SLIDER || Number(a.precio) <= filters.precioMax)
   ), [autos, filters]);
 
   return (

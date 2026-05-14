@@ -6,8 +6,8 @@ import { useInView }   from "../../hooks/useInView";
 import Badge           from "../ui/Badge";
 import C               from "../../constants/theme";
 
-const fmt$ = n => `USD ${Number(n).toLocaleString("es-UY")}`;
-const fmtKm = n => `${Number(n).toLocaleString("es-UY")} km`;
+const fmt$ = n => n ? `USD ${Number(n).toLocaleString("es-UY")}` : "Consultar precio";
+const fmtKm = n => n ? `${Number(n).toLocaleString("es-UY")} km` : "—";
 const esImagen = src => typeof src === "string" && src.startsWith("data:");
 
 // Delay escalonado por índice — máximo 400ms para no aburrir
