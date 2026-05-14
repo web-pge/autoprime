@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-const BASE        = import.meta.env.VITE_API_URL;
+const BASE        = import.meta.env.VITE_API_URL || "";
 const SESSION_KEY = "autoprime_auth";
 
 const getSession = () => {
