@@ -11,29 +11,45 @@ export function useVehiculos() {
   useEffect(() => {
     setLoading(true);
     getVehiculos()
-      .then(data => { setAutos(data); setLoading(false); })
-      .catch(err  => { setError(err); setLoading(false); });
+      .then(data => {
+        setAutos(Array.isArray(data) ? data : []);
+        setLoading(false);
+      })
+      .catch(err => { setError(err); setLoading(false); });
   }, []);
 
   const agregar = async data => {
+    setError(null);
     try {
       const nuevo = await createVehiculo(data);
-      setAutos(prev => [nuevo, ...prev]);
+      if (nuevo && nuevo.id) {
+        setAutos(prev => [nuevo, ...prev]);
+      } else {
+        const lista = await getVehiculos();
+        setAutos(Array.isArray(lista) ? lista : []);
+      }
     } catch (err) {
       setError(err);
     }
   };
 
   const actualizar = async data => {
+    setError(null);
     try {
       const actualizado = await updateVehiculo(data);
-      setAutos(prev => prev.map(a => a.id === actualizado.id ? actualizado : a));
+      if (actualizado && actualizado.id) {
+        setAutos(prev => prev.map(a => a.id === actualizado.id ? actualizado : a));
+      } else {
+        const lista = await getVehiculos();
+        setAutos(Array.isArray(lista) ? lista : []);
+      }
     } catch (err) {
       setError(err);
     }
   };
 
   const eliminar = async id => {
+    setError(null);
     try {
       await deleteVehiculo(id);
       setAutos(prev => prev.filter(a => a.id !== id));
