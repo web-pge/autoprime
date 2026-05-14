@@ -23,8 +23,8 @@ export default function Nav() {
   const links = [
     ...PUBLIC_LINKS,
     isAuthenticated
-      ? { label: "⚙️ Admin", to: "/admin" }
-      : { label: "🔐 Admin", to: "/admin/login" },
+      ? { label: "⚙️ ElAdmin", to: "/admin" }
+      : { label: "🔐 NoAdmin", to: "/admin/login" },
   ];
 
   const handleLogout = () => {
