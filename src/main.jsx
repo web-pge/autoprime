@@ -1,11 +1,8 @@
 // src/main.jsx
-// Punto de entrada de la aplicación.
 
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 
-// Reset CSS mínimo — sin dependencias externas
 const globalStyles = `
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -22,8 +19,4 @@ const styleTag = document.createElement("style");
 styleTag.textContent = globalStyles;
 document.head.appendChild(styleTag);
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+createRoot(document.getElementById("root")).render(<App />);

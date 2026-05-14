@@ -6,9 +6,8 @@ import PrivateRoute      from "./components/auth/PrivateRoute";
 import Nav               from "./components/layout/Nav";
 import Footer            from "./components/layout/Footer";
 
-// Pages
-import InicioTest from "./pages/InicioTest";   // ← tu landing con animaciones
-import Inicio     from "./pages/Inicio";        // ← la versión anterior en /test
+import InicioTest from "./pages/InicioTest";
+import Inicio     from "./pages/Inicio";
 import Catalogo   from "./pages/Catalogo";
 import Detalle    from "./pages/Detalle";
 import Contacto   from "./pages/Contacto";
@@ -25,23 +24,17 @@ export default function App() {
 
           <main style={{ flex: 1 }}>
             <Routes>
-              {/* Pública — tu landing con animaciones */}
               <Route path="/"            element={<InicioTest />} />
               <Route path="/test"        element={<Inicio />} />
               <Route path="/catalogo"    element={<Catalogo />} />
               <Route path="/auto/:id"    element={<Detalle />} />
               <Route path="/contacto"    element={<Contacto />} />
-
-              {/* Auth */}
               <Route path="/admin/login" element={<AdminLogin />} />
-
-              {/* Admin protegido */}
               <Route path="/admin" element={
                 <PrivateRoute>
                   <Admin />
                 </PrivateRoute>
               } />
-
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
