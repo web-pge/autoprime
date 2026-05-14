@@ -16,6 +16,11 @@ const authHeaders = () => {
 // Helper para manejar errores de la API
 const handleResponse = async res => {
   if (!res.ok) {
+    if (res.status === 401) {
+      // Token expirado, limpiar sesión
+      sessionStorage.removeItem("autoprime_auth");
+      window.location.href = "/admin/login"; // Redirigir a login
+    }
     const err = await res.json().catch(() => ({ error: "Error de red" }));
     throw new Error(err.error || `Error ${res.status}`);
   }

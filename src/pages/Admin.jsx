@@ -12,7 +12,7 @@ import { useBreakpoint } from "../hooks/useBreakpoint";
 const TABLE_HEADERS = ["Vehículo", "Año / km", "Precio", "Estado", "Acciones"];
 
 export default function Admin() {
-  const { autos, agregar, actualizar, eliminar } = useVehiculos();
+  const { autos, agregar, actualizar, eliminar, loading, error } = useVehiculos();
   const { isMobile } = useBreakpoint();
   const [modo, setModo]       = useState("lista");
   const [autoEdit, setAutoEdit] = useState(null);
@@ -33,6 +33,21 @@ export default function Admin() {
 
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: isMobile ? "20px 16px" : "32px 24px" }}>
+
+      {/* Mostrar error si hay */}
+      {error && (
+        <div style={{
+          background: C.dangerBg,
+          border: `1px solid #FCA5A5`,
+          borderRadius: 8,
+          padding: "12px 16px",
+          marginBottom: 16,
+          color: C.danger,
+          fontSize: 14,
+        }}>
+          ⚠️ Error: {error.message || error}
+        </div>
+      )}
 
       {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24, gap: 12 }}>
