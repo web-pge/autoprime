@@ -1,9 +1,9 @@
 // src/hooks/useAuth.js
 // Login real contra la API de Vercel.
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const BASE        = import.meta.env.VITE_API_URL || "";
+const BASE        = import.meta.env.VITE_API_URL || "https://autoprime-api-ruby.vercel.app";
 const SESSION_KEY = "autoprime_auth";
 
 const getSession = () => {
@@ -15,24 +15,6 @@ export function useAuth() {
   const [session, setSession] = useState(getSession);
   const [error, setError]     = useState(null);
   const [loading, setLoading] = useState(false);
-
-  // Verificar token al montar
-  useEffect(() => {
-    if (session?.token) {
-      // Verificar si el token sigue válido
-      fetch(`${BASE}/api/auth/verificar`, {
-        headers: { Authorization: `Bearer ${session.token}` },
-      })
-        .then(res => {
-          if (!res.ok) throw new Error("Token inválido");
-        })
-        .catch(() => {
-          // Si falla, limpiar sesión
-          sessionStorage.removeItem(SESSION_KEY);
-          setSession(null);
-        });
-    }
-  }, [session?.token]);
 
   const isAuthenticated = !!session?.token;
 

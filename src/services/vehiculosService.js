@@ -2,7 +2,7 @@
 // Conectado a la API real en Vercel.
 // VITE_API_URL debe estar en el .env del frontend.
 
-const BASE = import.meta.env.VITE_API_URL || "";
+const BASE = import.meta.env.VITE_API_URL || "https://autoprime-api-ruby.vercel.app";
 
 // Helper para requests autenticados
 const authHeaders = () => {

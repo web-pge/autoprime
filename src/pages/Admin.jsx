@@ -21,7 +21,7 @@ export default function Admin() {
   const handleCancelar = ()   => { setModo("lista"); setAutoEdit(null); };
 
   const handleGuardarNuevo = async form => {
-    await agregar({ ...form, id: Date.now() });
+    await agregar(form);
     setModo("lista");
   };
 
