@@ -1,8 +1,8 @@
 // src/constants/vehicleOptions.js
 
-export const TIPOS        = ["Sedán", "SUV", "Hatchback", "Pick-up"];
-export const COMBUSTIBLES = ["Nafta", "Diesel", "Eléctrico", "Híbrido"];
-export const TRANSMISIONES = ["Manual", "Automático", "CVT"];
+export const TIPOS        = ["Sedan", "SUV", "Hatchback", "Pickup"];
+export const COMBUSTIBLES = ["Nafta", "Diesel", "Electrico", "Hibrido"];
+export const TRANSMISIONES = ["Manual", "Automatico", "CVT"];
 
 export const FOTO_OPTS = [
   "🚗","🏎️","🛻","🚙","🚕",
@@ -24,7 +24,7 @@ export const EMPTY_AUTO = {
   año:         "",
   km:          "",
   precio:      "",
-  tipo:        "Sedán",
+  tipo:        "Sedan",
   combustible: "Nafta",
   transmision: "Manual",
   color:       "",
