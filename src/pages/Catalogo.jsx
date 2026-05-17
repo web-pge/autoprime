@@ -32,7 +32,7 @@ export default function Catalogo() {
   const filtrados = useMemo(() => autos.filter(a =>
     (filters.tipo  === "Todos"  || a.tipo  === filters.tipo) &&
     (filters.marca === "Todas"  || a.marca === filters.marca) &&
-    (filters.precioMax >= PRECIO_MAX_SLIDER || Number(a.precio) <= filters.precioMax)
+    Number(a.precio) <= filters.precioMax  // ✅ CORREGIDO
   ), [autos, filters]);
 
   return (
