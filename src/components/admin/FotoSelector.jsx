@@ -14,9 +14,9 @@ export default function FotoSelector({ selected = [], onChange }) {
     if (!files.length) return;
 
     const readers = files.map(file => new Promise((resolve, reject) => {
-      // Aviso si la foto es muy grande
-      if (file.size > 0.5 * 1024 * 1024) {
-        reject(new Error(`"${file.name}" supera 500KB. Usá una foto más liviana.`));
+      // ✅ AUMENTADO: 5MB en lugar de 500KB
+      if (file.size > 5 * 1024 * 1024) {
+        reject(new Error(`"${file.name}" supera 5MB. Usá una foto más liviana.`));
         return;
       }
       const reader = new FileReader();
@@ -96,7 +96,7 @@ export default function FotoSelector({ selected = [], onChange }) {
       </button>
 
       <p style={{ margin: "6px 0 0", fontSize: 12, color: C.muted }}>
-        Máx. 500KB por foto · JPG, PNG, WEBP · Podés subir varias a la vez
+        Máx. 5MB por foto · JPG, PNG, WEBP · Podés subir varias a la vez
       </p>
     </div>
   );
